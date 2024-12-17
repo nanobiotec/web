@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--mainFont);
+    direction: ltr;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100dvw;
+    min-height: 100dvh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.fa-solid {
+    display: inline-block;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+:where(h1, h2, h3, h4, h5, h6) * {
+    font-family: var(--titleFont);
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}

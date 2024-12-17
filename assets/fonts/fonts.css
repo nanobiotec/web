@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Parkinsans";
+    src: url("Parkinsans/Parkinsans-VariableFont_wght.ttf");
+}
+@font-face {
+    font-family: "JosefinSans";
+    src: url("Josefin_Sans/JosefinSans-VariableFont_wght.ttf");
+    font-style: normal;
+}
+@font-face {
+    font-family: "JosefinSans";
+    src: url("Josefin_Sans/JosefinSans-Italic-VariableFont_wght.ttf");
+    font-style: italic;
+}

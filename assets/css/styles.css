@@ -1,0 +1,629 @@
+/*Animaciones*/
+@keyframes titleDna {
+    0% {
+        rotate: 20deg;
+    }
+
+    100% {
+        rotate: -20deg;
+    }
+}
+
+@keyframes rotateEarth {
+    0% {
+        transform: rotateY(0deg) rotateX(-30deg);
+    }
+    100% {
+        transform: rotateY(360deg) rotateX(-30deg);
+    }
+}
+
+@keyframes rotateStar {
+    0% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes teamArrow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-2rem);
+    }
+}
+
+@keyframes memberArrow {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(-.5rem) translateY(-.1rem);
+    }
+}
+
+
+body {
+    background-color: var(--black);
+    overflow-x: clip;
+}
+
+.page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: clip;
+}
+
+
+/*Estilos del header*/
+.page__header {
+    width: 100%;
+    height: var(--heightHeader);
+    background-color: var(--black);
+    box-shadow: 0 .5rem .8rem color-mix(in srgb, var(--black) 50%, #00000055 50%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header__wrapper {
+    height: 100%;
+    width: min(100%, var(--maxLength));
+    padding: 0 var(--paddingWrapper);
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__title {
+    text-align: center;
+    color: var(--lightPurple);
+    font-family: var(--titleFont);
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    font-size: clamp(1.4rem, 5dvw, 2.5rem);
+    text-wrap: nowrap;
+    transition: text-shadow .3s ease;
+}
+
+.header__dna, .footer__dna {
+    animation: titleDna 5s infinite linear alternate;
+}
+
+.footer__dna {
+    animation-direction: alternate-reverse;
+}
+
+.header__nav {
+    width: fit-content;
+}
+
+.nav__ul {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__link {
+    color: var(--lightPurple);
+    font-size: clamp(1rem, 2dvw, 1.5rem);
+    text-wrap: nowrap;
+    transition: text-shadow .3s ease;
+    position: relative;
+    height: var(--heightHeader);
+    display: flex;
+    align-items: center;
+}
+
+.nav__arrow {
+    transition: rotate .2s ease;
+}
+
+.nav__sublinks {
+    display: none;
+    position: absolute;
+    box-shadow: 0 0 .8rem color-mix(in srgb, var(--black) 50%, #00000055 50%);
+    top: 100%;
+    left: 0;
+    width: fit-content;
+    background-color: var(--black);
+    padding: 1rem 2rem 1rem 1rem;
+    min-height: 10rem;
+    text-shadow: none;
+    border-radius: 0 0 1.3rem 1.3rem;
+}
+
+.sublinks__ul {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .7rem;
+}
+
+.sublinks__link {
+    transition: text-shadow .3s ease;
+}
+
+.header__burger-checkbox {
+    display: none;
+}
+
+.header__burger {
+    display: none;
+    color: var(--lightPurple);
+    font-size: clamp(2.5rem, 8dvw, 5rem);
+    transition: text-shadow .3s ease;
+    animation: titleDna 5s infinite linear alternate-reverse;
+}
+
+.page__mobile-box {
+    display: none;
+    position: fixed;
+    top: var(--heightHeader);
+    z-index: 100;
+    width: 100%;
+    height: calc(100dvh - var(--heightHeader));
+}
+
+.page__header:has(.header__burger-checkbox:checked) + .page__mobile-box {
+    display: block;
+}
+/*Fin estilos del header*/
+
+
+/*Estilos del banner*/
+.page__banner {
+    /*transform: translateY(var(--heightHeader));*/
+    margin-top: var(--heightHeader);
+    width: 100dvw;
+    height: max(calc(100dvh - var(--heightHeader)), auto);
+    display: flex;
+    align-items: center;
+    overflow: clip;
+    position: relative;
+    padding: var(--paddingVertical) 0;
+}
+
+.banner__background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/pictures/DNA-banner.png");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.banner__background::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, transparent, color-mix(in srgb, var(--deepPurple) 85%, transparent 15%));
+}
+
+.banner__grid {
+    padding: 0 var(--paddingWrapper);
+    width: min(100%, var(--maxLength));
+    height: max(100%, auto);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    margin: 0 auto;
+    gap: 5rem;
+}
+
+.banner__text {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.banner__article {
+    width: 100%;
+}
+
+.banner__title {
+    color: var(--white);
+    font-size: clamp(3rem, 15dvw, 6rem);
+    text-wrap: balance;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 .8rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+}
+
+.banner__paragraph {
+    color: var(--white);
+    font-size: clamp(2.2rem, 4dvw, 2.3rem);
+    text-shadow: 0 0 .6rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+    text-align: justify;
+}
+
+.banner__strong {
+    display: inline-block;
+    padding: .2rem 1rem .2rem;
+    border-radius: .5rem;
+    background-color: color-mix(in srgb, var(--purple) 40%, transparent 60%);
+}
+
+.banner__cube-container {
+    flex-flow: row nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+.banner__cube {
+    pointer-events: none;
+    animation: rotateEarth 30s infinite linear normal;
+
+    width: var(--cubeLength);
+    aspect-ratio: 1 / 1;
+    perspective: 5000px;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+
+.cube__earth {
+    width: 95%;
+    height: 95%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    perspective: 5000px;
+    transform-style: preserve-3d;
+    --earthLength: calc((var(--cubeLength)* .95) / 2);
+}
+
+.cube__clouds {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    perspective: 5000px;
+    transform-style: preserve-3d;
+    --cloudsLength: calc(var(--cubeLength) / 2);
+}
+
+.earth__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.earth__face--front {
+    background-image: url("../img/earthCube/Front.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateZ(var(--earthLength));
+}
+
+.earth__face--back{
+    background-image: url("../img/earthCube/Back.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateZ(calc(var(--earthLength) * -1)) rotateY(180deg);
+}
+
+
+.earth__face--right {
+    background-image: url("../img/earthCube/Right.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateX(var(--earthLength)) rotateY(90deg);
+}
+
+.earth__face--left {
+    background-image: url("../img/earthCube/Left.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateX(calc(var(--earthLength) * -1)) rotateY(-90deg);
+}
+
+
+.earth__face--top {
+    background-image: url("../img/earthCube/Top.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateY(calc(var(--earthLength) * -1)) rotateX(90deg);
+}
+
+.earth__face--bottom {
+    background-image: url("../img/earthCube/Bottom.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateY(var(--earthLength)) rotateX(-90deg);
+}
+
+.clouds__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.clouds__face--front {
+    background-image: url("../img/earthCube/NubeFront.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateZ(var(--cloudsLength));
+}
+
+.clouds__face--back{
+    background-image: url("../img/earthCube/NubeBack.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateZ(calc(var(--cloudsLength) * -1));
+}
+
+
+.clouds__face--right {
+    background-image: url("../img/earthCube/NubeRight.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateX(var(--cloudsLength)) rotateY(90deg);
+}
+
+.clouds__face--left {
+    background-image: url("../img/earthCube/NubeLeft.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateX(calc(var(--cloudsLength) * -1)) rotateY(-90deg);
+}
+
+
+.clouds__face--top {
+    background-image: url("../img/earthCube/NubeTop.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateY(calc(var(--cloudsLength) * -1)) rotateX(90deg);
+}
+
+.clouds__face--bottom {
+    background-image: url("../img/earthCube/NubeBottom.png");
+    background-position: center;
+    background-size: cover;
+    transform: translateY(var(--cloudsLength)) rotateX(-90deg);
+}
+
+
+/*Estilos de sección*/
+.page__section {
+    width: 100%;
+    display: block;
+}
+
+.section__wrapper {
+    width: min(100%, var(--maxLength));
+    padding: var(--paddingVertical) var(--paddingWrapper);
+    margin: 0 auto;
+}
+
+.section__header {
+    color: var(--white);
+    font-size: clamp(2.7rem, 8dvw, 4rem);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 .8rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section__title {
+    width: fit-content;
+}
+
+.section__text {
+    color: var(--white);
+    font-size: clamp(1.8rem, 5dvw, 3rem);
+    text-shadow: 0 0 .8rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+    text-align: center;
+}
+
+
+/*Estilos seccion de Objetivos*/
+.objectives__star {
+    display: block;
+    animation: rotateStar 2s infinite linear alternate;
+}
+
+.objectives__star--2 {
+    animation-direction: alternate-reverse;
+}
+
+/*Estilos seccion de Equipo*/
+.page__team {
+    background-color: var(--deeperPurple);
+}
+
+.team__header {
+    display: block;
+}
+.team__title {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.team__arrow {
+    animation: teamArrow .5s infinite ease alternate;
+    font-size: clamp(3rem, 10dvw, 6rem);
+    margin-right: 1rem;
+}
+
+.team__members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.team__member {
+    background-color: var(--black);
+    border-radius: 3rem;
+    padding:  2rem 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: clip;
+}
+
+.team__member-name {
+    color: color-mix(in srgb, var(--white) 70%, transparent 30%);
+    font-size: clamp(2rem, 5dvw, 3rem);
+    text-align: center;
+    font-family: var(--titleFont);
+    font-weight: 600;
+    transition: text-shadow .2s ease, color .2s ease;
+}
+
+.team__member-image {
+    width: clamp(15rem, 20dvw, 25rem);
+    display: block;
+    margin: 0 auto;
+    transition: filter .2s ease, transform .2s ease;
+    margin-bottom: 1rem;
+}
+
+.team__anchor {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+
+/*Estilos del footer*/
+.page__footer {
+    position: relative;
+    width: 100%;
+    min-height: 50rem;
+    background-image: url(../img/pictures/DNA-banner.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: clip;
+}
+
+.page__footer::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, transparent, color-mix(in srgb, var(--deepPurple) 85%, transparent 15%));
+}
+
+.footer__wrapper {
+    position: relative;
+    z-index: 50;
+    width: min(100%, var(--maxLength));
+    padding: var(--paddingVertical) var(--paddingWrapper);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(1, auto);
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    column-gap: 1rem;
+    row-gap: 2rem;
+    margin: 0 auto;
+}
+
+.footer__school-logo {
+    width: clamp(6rem, 10dvw, 10rem);
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 .6rem color-mix(in srgb, var(--white) 60%, transparent 40%));
+}
+
+.footer__school-name {
+    font-family: var(--titleFont);
+    font-weight: 600;
+    text-align: center;
+    text-wrap: balance;
+    color: var(--white);
+    font-size: clamp(1.5rem, 3dvw, 1.8rem);
+    text-shadow: 0 0 .6rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+}
+
+
+.footer__title {
+    text-wrap: nowrap;
+    color: var(--white);
+    font-size: clamp(2.3rem, 10dvw, 3.7rem);
+    text-wrap: balance;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 .8rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+    text-align: center;
+}
+
+.footer__paragraph {
+    color: var(--white);
+    font-size: clamp(1.3rem, 3dvw, 1.6rem);
+    text-shadow: 0 0 .6rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+    text-align: center;
+    text-wrap: balance;
+}
+
+.footer__members-title {
+    color: var(--white);
+    font-size: clamp(1.7rem, 7dvw, 2.2rem);
+    text-wrap: balance;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 .8rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+    text-align: center;
+}
+
+.footer__members-list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    gap: 1rem;
+}
+
+.footer__member {
+    color: var(--white);
+    text-wrap: balance;
+    font-size: clamp(.9rem, 3dvw, 1.4rem);
+    text-shadow: 0 0 .6rem color-mix(in srgb, var(--white) 60%, transparent 40%);
+    text-align: left;
+}
+
+.footer__member-icon {
+    animation: memberArrow .5s infinite ease-out alternate;
+}
+
+
+
+

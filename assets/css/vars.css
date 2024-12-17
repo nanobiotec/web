@@ -1,0 +1,35 @@
+:root {
+    /*color vars*/
+    --limeGreen: #a4b542;
+    --lightGreen: #58b17a;
+    --grayGreen: #b7c6aa;
+    --darkGreen: #3c7157;
+    --deepGreen: #1e453c;
+    --deeperGreen: #173334;
+    --lightPurple: #8469d1;
+    --grayPurple: #b4aac6;
+    --darkPurple: #503c71;
+    --deepPurple: #2c1e45;
+    --deeperPurple: #160f24;
+    --black: #0f0c15;
+    --white: #f7fffd;
+    --red: #da2211;
+    --purple: #3d11da;
+    --brown: #5d4231;
+    --darkBrown: #342b20;
+    --lightGray: #877caf;
+    --middleGray: #766891;
+    --darkGray: #413658;
+
+
+    /*length vars*/
+    --maxLength: 120rem;
+    --paddingWrapper: 7%;
+    --heightHeader: 6rem;
+    --cubeLength: 25rem;
+    --paddingVertical: 7rem;
+
+    /*font vars*/
+    --mainFont: "Parkinsans";
+    --titleFont: "JosefinSans";
+}
